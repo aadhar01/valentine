@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Be My Valentine ❤️</title>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #ffdee9, #b5fffc);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+      max-width: 350px;
+      width: 90%;
+      z-index: 2;
+      position: relative;
+    }
+
+    h1 {
+      color: #ff4d6d;
+    }
+
+    p {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .flowers {
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    .buttons {
+      position: relative;
+      height: 60px;
+    }
+
+    button {
+      font-size: 18px;
+      padding: 12px 22px;
+      border-radius: 25px;
+      border: none;
+      cursor: pointer;
+      position: absolute;
+      transition: 0.3s;
+    }
+
+    .yes {
+      background: #ff4d6d;
+      color: white;
+      left: 30px;
+    }
+
+    .no {
+      background: #ccc;
+      right: 30px;
+    }
+
+    /* Love Screen */
+    .love {
+      display: none;
+    }
+
+    .love h1 {
+      font-size: 34px;
+      color: #ff1e56;
+    }
+
+    .hearts {
+      font-size: 40px;
+      animation: float 1.5s infinite alternate;
+    }
+
+    /* Balloons */
+    .balloon {
+      position: absolute;
+      bottom: -100px;
+      font-size: 40px;
+      animation: rise 8s infinite linear;
+    }
+
+    @keyframes rise {
+      from { transform: translateY(0); opacity: 1; }
+      to { transform: translateY(-120vh); opacity: 0; }
+    }
+
+    @keyframes float {
+      from { transform: translateY(0); }
+      to { transform: translateY(-12px); }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Balloons -->
+  <div class="balloon" style="left:10%; animation-delay:0s;">🎈</div>
+  <div class="balloon" style="left:30%; animation-delay:2s;">🎈</div>
+  <div class="balloon" style="left:50%; animation-delay:4s;">🎈</div>
+  <div class="balloon" style="left:70%; animation-delay:1s;">🎈</div>
+  <div class="balloon" style="left:90%; animation-delay:3s;">🎈</div>
+
+  <!-- Question Card -->
+  <div class="card" id="question">
+    <div class="flowers">🌸 🌼 🌷</div>
+    <h1>Priyanka 💖</h1>
+    <p>Will you be my Valentine?</p>
+
+    <div class="buttons">
+      <button class="yes" onclick="sayYes()">Yes 💘</button>
+      <button class="no" id="noBtn">No 🙈</button>
+    </div>
+  </div>
+
+  <!-- Love Card -->
+  <div class="card love" id="love">
+    <h1>Aadhar loves you ❤️</h1>
+    <p>Forever and always 💕</p>
+    <div class="hearts">💖 💕 💘 💝</div>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("noBtn");
+
+    noBtn.addEventListener("mouseover", moveButton);
+    noBtn.addEventListener("touchstart", moveButton);
+
+    function moveButton() {
+      const x = Math.random() * 200 - 100;
+      const y = Math.random() * 100 - 50;
+      noBtn.style.transform = `translate(${x}px, ${y}px)`;
+    }
+
+    function sayYes() {
+      document.getElementById("question").style.display = "none";
+      document.getElementById("love").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
